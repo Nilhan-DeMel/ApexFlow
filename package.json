@@ -6,7 +6,7 @@
     "start": "node src/backend/server.js",
     "dev": "nodemon src/backend/server.js",
     "test": "jest",
-    "scan:ripples": "depcruise src --include-only 'src' --output-type dot | dot -T svg > dependency-graph.svg",
+    "scan:ripples": "depcruise src --include-only 'src' --output-type html > dependency-graph.html",
     "scan:quality": "eslint src/**"
   },
   "repository": {
