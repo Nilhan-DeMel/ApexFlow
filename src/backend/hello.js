@@ -6,5 +6,9 @@
  * @Dependencies None
  */
 function helloWorld() {
-    // Placeholder function for "helloWorld"
+    return {
+        message: "Hello, World! ApexFlow API is working."
+    };
 }
+
+module.exports = { helloWorld };
