@@ -9,6 +9,7 @@ require('dotenv').config();
 const express = require('express');
 const helmet = require('helmet');
 const cors = require('cors');
+const { helloWorld } = require('./hello');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -21,6 +22,8 @@ app.use(cors());
 app.get('/', (req, res) => {
     res.json({ status: "Active", system: "ApexFlow" });
 });
+
+app.get('/api/hello', (req, res) => res.json(helloWorld()));
 
 // Start Server
 if (require.main === module) {
