@@ -16,8 +16,8 @@
 ## Changes Made
 
 | File | Action | Description |
-|------|--------|-------------|
-| | | |
+| ---- | ------ | ----------- |
+|      |        |             |
 
 ## Ripple Effects
 

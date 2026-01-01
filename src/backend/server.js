@@ -20,16 +20,16 @@ app.use(cors());
 
 // Health Check Route
 app.get('/', (req, res) => {
-    res.json({ status: "Active", system: "ApexFlow" });
+  res.json({ status: 'Active', system: 'ApexFlow' });
 });
 
 app.get('/api/hello', (req, res) => res.json(helloWorld()));
 
 // Start Server
 if (require.main === module) {
-    app.listen(PORT, () => {
-        console.log(`ApexFlow Engine running on port ${PORT}`);
-    });
+  app.listen(PORT, () => {
+    console.log(`ApexFlow Engine running on port ${PORT}`);
+  });
 }
 
 module.exports = app;

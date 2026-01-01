@@ -38,12 +38,12 @@ npm run dev
 
 ## Scripts
 
-| Command | Purpose |
-|---------|---------|
-| `npm run dev` | Start dev server (nodemon) |
-| `npm test` | Run Jest tests |
-| `npm run scan:quality` | ESLint check |
-| `npm run scan:ripples` | Dependency graph |
+| Command                | Purpose                    |
+| ---------------------- | -------------------------- |
+| `npm run dev`          | Start dev server (nodemon) |
+| `npm test`             | Run Jest tests             |
+| `npm run scan:quality` | ESLint check               |
+| `npm run scan:ripples` | Dependency graph           |
 
 ## Stack
 

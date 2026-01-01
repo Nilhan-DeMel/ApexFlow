@@ -6,9 +6,9 @@
  * @Dependencies None
  */
 function helloWorld() {
-    return {
-        message: "Hello, World! ApexFlow API is working."
-    };
+  return {
+    message: 'Hello, World! ApexFlow API is working.',
+  };
 }
 
 module.exports = { helloWorld };
