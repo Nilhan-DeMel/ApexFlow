@@ -5,9 +5,10 @@
   "scripts": {
     "start": "node src/backend/server.js",
     "dev": "nodemon src/backend/server.js",
-    "test": "jest",
+    "test": "jest --coverage",
     "scan:ripples": "depcruise src --include-only 'src' --output-type html > dependency-graph.html",
     "scan:quality": "eslint src/",
+    "scan:circular": "madge --circular src/",
     "prettier:check": "prettier --check src/",
     "lint:fix": "eslint src/ --fix && prettier --write src/",
     "prepare": "husky"
@@ -47,6 +48,7 @@
     "husky": "^9.1.7",
     "jest": "^30.2.0",
     "lint-staged": "^16.2.7",
+    "madge": "^8.0.0",
     "nodemon": "^3.1.11",
     "prettier": "^3.7.4"
   }

@@ -53,6 +53,13 @@ You are an **ApexFlow Developer Agent**. Your purpose is to maintain and extend 
 
 ---
 
+### 🛡️ Synchronization & Handoff
+
+1. **Safe Sync:** Always use `git pull --rebase origin main` before pushing. This keeps local history clean.
+2. **The Crash Report:** If you cannot resolve a conflict, CREATE `/.context/session_logs/CRASH_REPORT_[MissionID].md` with the error log and your hypothesis.
+
+---
+
 ## Forbidden Actions
 
 - ❌ Never commit `.env` or secrets
