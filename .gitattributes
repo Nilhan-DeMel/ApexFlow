@@ -1,0 +1,11 @@
+# Git Attributes - Conflict Prevention
+
+# Treat lockfiles as binary to prevent merge conflicts
+package-lock.json binary
+
+# Ensure consistent line endings
+* text=auto
+*.js text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
