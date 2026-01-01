@@ -10,6 +10,7 @@ const express = require('express');
 const helmet = require('helmet');
 const cors = require('cors');
 const { helloWorld } = require('./hello');
+const logger = require('./utils/logger');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -28,7 +29,7 @@ app.get('/api/hello', (req, res) => res.json(helloWorld()));
 // Start Server
 if (require.main === module) {
   app.listen(PORT, () => {
-    console.log(`ApexFlow Engine running on port ${PORT}`);
+    logger.info(`ApexFlow Engine running on port ${PORT}`);
   });
 }
 

@@ -9,7 +9,8 @@
     "scan:ripples": "depcruise src --include-only 'src' --output-type html > dependency-graph.html",
     "scan:quality": "eslint src/",
     "prettier:check": "prettier --check src/",
-    "lint:fix": "eslint src/ --fix && prettier --write src/"
+    "lint:fix": "eslint src/ --fix && prettier --write src/",
+    "prepare": "husky"
   },
   "repository": {
     "type": "git",
@@ -23,18 +24,29 @@
   },
   "homepage": "https://github.com/Nilhan-DeMel/ApexFlow#readme",
   "description": "",
+  "lint-staged": {
+    "src/**/*.js": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  },
   "dependencies": {
     "@supabase/supabase-js": "^2.89.0",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
     "helmet": "^8.1.0",
+    "winston": "^3.17.0",
     "zod": "^4.3.3"
   },
   "devDependencies": {
+    "@commitlint/cli": "^20.2.0",
+    "@commitlint/config-conventional": "^20.2.0",
     "dependency-cruiser": "^17.3.5",
     "eslint": "^9.39.2",
+    "husky": "^9.1.7",
     "jest": "^30.2.0",
+    "lint-staged": "^16.2.7",
     "nodemon": "^3.1.11",
     "prettier": "^3.7.4"
   }
