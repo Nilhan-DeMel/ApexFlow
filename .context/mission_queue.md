@@ -11,9 +11,7 @@
 
 ## Ready for Merge
 
-| Branch | Description |
-| ------ | ----------- |
-| `feat/operation-titanium` | Madge, Jest Coverage Floor, Safe Sync Rules |
+*None*
 
 ---
 
