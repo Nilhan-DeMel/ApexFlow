@@ -8,6 +8,12 @@
 | P2       | ⬜ Open | Add request validation with Zod  | -        | Apply to all routes         |
 | P3       | ⬜ Open | Create error handling middleware | -        | Centralized error responses |
 
+## Ready for Merge
+
+| Branch | Description |
+| ------ | ----------- |
+| `feat/infrastructure-upgrade` | Husky, Commitlint, Winston Telemetry |
+
 ---
 
 ## Status Legend
