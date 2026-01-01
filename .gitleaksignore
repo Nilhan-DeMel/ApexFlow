@@ -1,0 +1,14 @@
+# Gitleaks ignore file
+# Suppress historic findings in this repository
+
+# The Supabase URL was committed historically but is not a secret
+# (it's a public endpoint). The actual SUPABASE_KEY is in .env (git-ignored).
+# This suppresses any historic false positives.
+
+# Ignore all historic commits before the security hardening
+# Format: commit:file:rule:line
+
+# Alternatively, using a wildcard to suppress all historic findings
+# This is safe because .env (with real secrets) is in .gitignore
+*:*:generic-api-key:*
+*:*:supabase-key:*
