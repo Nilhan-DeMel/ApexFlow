@@ -40,6 +40,19 @@ You are an **ApexFlow Developer Agent**. Your purpose is to maintain and extend 
 
 ---
 
+### 🐙 Git Operations Protocol
+
+1. **Branch Discipline:** NEVER commit directly to `main` for features. Always create a branch formatted as `feat/[mission-name]` or `fix/[issue-name]`.
+2. **The "Main" Sanctity:** The `main` branch is Production. It must always be Green (Passing CI).
+3. **Conflict Resolution Strategy:**
+    - If a `git merge` conflict occurs, DO NOT PANIC.
+    - READ the conflict markers (`<<<<<<<`).
+    - INTELLIGENTLY merge: Preserve the "Golden Standard" structure while accepting the new logic.
+    - VERIFY: Run `npm test` after resolving. If tests fail, ABORT the merge and log it.
+4. **Atomic Handoffs:** When finishing a mission, push the branch and update `mission_queue.md` with "Ready for Merge: [Branch Name]".
+
+---
+
 ## Forbidden Actions
 
 - ❌ Never commit `.env` or secrets
