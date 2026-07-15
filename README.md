@@ -1,58 +1,62 @@
 # ApexFlow
 
-> **Agent-Native Backend System** | Stateless Architecture | Supabase-Powered
+An agent-native backend engineering lab for stateless handoffs, enforceable repository policy, and a small Express/Supabase service core.
 
----
+ApexFlow explores what changes when a repository—not a chat transcript—becomes the durable operating context for AI-assisted development. The codebase pairs a deliberately compact Node.js backend with a versioned `.context` control plane covering architecture, mission queues, repair history, agent identity, session logs, and non-negotiable engineering rules.
 
-<!-- SYSTEM INSTRUCTIONS FOR AI AGENTS -->
-<!--
-You are entering the ApexFlow repository.
-Before making ANY changes, you MUST read:
-1. /.context/rules.md (The Constitution)
-2. /.context/system_persona.md (Your Identity)
-3. /.context/architecture.md (The Map)
-4. /.context/mission_queue.md (Your Next Task)
+## What makes it interesting
 
-RULES:
-- All code files MUST have @Meta blocks
-- Files MUST be <100 lines
-- Commits follow conventional format: feat|fix|chore|docs: message
-- Check /.context/repair_log.md before fixing bugs
-- Log your session in /.context/session_logs/ before exiting
--->
+- **Repository-native agent memory:** missions, decisions, system persona, repair notes, and handoffs are committed as inspectable artifacts.
+- **Enforceable modularity:** source files carry semantic `@Meta` contracts and stay intentionally small and single-purpose.
+- **Stateless service boundary:** an Express entry point exposes health and example API routes; Supabase authentication is isolated behind a dedicated adapter.
+- **Defensive middleware:** Helmet, CORS, environment-driven configuration, and structured logging establish a practical backend baseline.
+- **Automated guardrails:** Jest coverage, ESLint, Prettier, circular-dependency checks, dependency visualization, conventional commits, and secret scanning run through the Gatekeeper workflow.
+- **Ripple visibility:** Dependency Cruiser and Madge make architectural coupling and cycles visible before changes are merged.
 
-## Quick Start
+## Current architecture
+
+```text
+.context/                durable agent control plane
+    |
+    v
+src/backend/server.js    Express composition root
+    |-- health + example route
+    |-- Helmet / CORS / logging
+    +-- Supabase client + auth service (isolated adapter)
+```
+
+| Area | Responsibility |
+| --- | --- |
+| `.context` | Constitution, architecture, mission queue, persona, repair log, and handoff records |
+| `src/backend/server.js` | HTTP composition root and middleware |
+| `src/backend/auth_service.js` | Supabase sign-up/sign-in boundary |
+| `src/backend/supabaseClient.js` | Environment-driven Supabase client construction |
+| `src/backend/utils` | Structured logging utility |
+| `.github/workflows/gatekeeper.yml` | CI quality and security gates |
+
+## Run locally
 
 ```bash
-npm install
+npm ci
+copy .env.example .env
 npm run dev
 ```
 
-## Project Structure
+Supply development Supabase values in `.env`; never commit provider credentials.
 
+## Verification
+
+```bash
+npm run scan:quality
+npm run prettier:check
+npm test
+npm run scan:circular
 ```
-/src/backend/         # Stateless Node.js services
-/.context/            # Agent Brain (rules, logs, queue)
-/.github/workflows/   # CI/CD Gatekeepers
-```
 
-## Scripts
+The employer-release baseline passes ESLint, Prettier, and the current Jest suite at 100% coverage for the implemented example route. The production dependency audit is clean after refreshing affected transitive packages.
 
-| Command                | Purpose                    |
-| ---------------------- | -------------------------- |
-| `npm run dev`          | Start dev server (nodemon) |
-| `npm test`             | Run Jest tests             |
-| `npm run scan:quality` | ESLint check               |
-| `npm run scan:ripples` | Dependency graph           |
+## Scope
 
-## Stack
+ApexFlow is an engineering and governance prototype, not a finished SaaS backend. The current runtime surface is intentionally small: the auth adapter exists, while profile APIs, request validation, centralized error handling, and the frontend remain visible items in [`.context/mission_queue.md`](.context/mission_queue.md). Its portfolio value is the combination of working code, explicit boundaries, and auditable agent-development discipline—not an inflated feature count.
 
-- **Runtime:** Node.js + Express
-- **Database:** Supabase
-- **Validation:** Zod
-- **Testing:** Jest
-- **Linting:** ESLint + Prettier
-
-## For Agents
-
-Read `/.context/system_persona.md` to understand your role.
+Agents should read [`.context/rules.md`](.context/rules.md), [`.context/system_persona.md`](.context/system_persona.md), [`.context/architecture.md`](.context/architecture.md), and [`.context/mission_queue.md`](.context/mission_queue.md) before making changes.
