@@ -11,7 +11,7 @@
 
 ## Ready for Merge
 
-*None*
+- `agent/employer-portfolio-polish` — employer-facing documentation, reproducible social preview, rights guidance, and portfolio integrity checks.
 
 ---
 
